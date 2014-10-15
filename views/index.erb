@@ -1,0 +1,26 @@
+<div class="col-md-6">
+	<h3>Please enter your text here</h3>
+
+	<form class="word-form" role="form" method="post" action="/">
+		<div class="form-group">
+			<textarea class="form-control" rows="3" name="words"></textarea>
+		</div>
+
+		<div class="form-group">
+			<h4>Enter Text to exclude:</h4>
+			<input type="text" name="exclude" placeholder="Exclude e.g: The, I, of" value="<%= Rack::Utils.escape_html @exclude %>" class="form-control">
+		</div>
+		<button type="submit" class="btn btn-success">Submit</button>
+	</form>
+</div>
+
+<div class="col-md-6">
+	<h3>Result</h3>
+	<% if @result %>
+		<ul class="result-ul">
+			<% @result.each do |key, value| %>
+			<li><%= "#{key} appeared #{value} times" %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
